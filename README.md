@@ -21,10 +21,17 @@ node --input-type=module -e 'import { apply_update } from "./apply-update.js"; c
 npm test
 ```
 
+## Time Taken
+
+started by code 23 min
+then test case 24 min
+then readme 9-10 min
+
+
 ## Known limitation
 
 A `409` response is status and error only. Conflict recovery reads the device again before the next save.
 
 ## Design choices
 
-`apply_update` checks the actor, the patch, and the expected version before it builds a new record. Allowed setting names and languages are `Set`s. The input record stays as it was, and the saved summary follows the `200` body.
+`scince the code is small and simple, i have not used any framework or library to write the code. The `apply_update` function checks the actor, the patch, and the expected version before it builds a new record. Allowed setting names and languages are `Set`s for faster lookup O(1) instade of O(n) and check for valid object only inputs. The input record stays as it was, and only the saved summary follows the `200` body.
